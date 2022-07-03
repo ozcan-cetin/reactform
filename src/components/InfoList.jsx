@@ -1,39 +1,42 @@
-import React from 'react'
+import { FaEdit } from 'react-icons/fa';
+import { AiFillDelete } from 'react-icons/ai';
 
-const InfoList = () => {
+const InfoList = ({ info }) => {
   return (
-    <div>
-        <table class="table table-striped">
+    <div className="list-container">
+      <table className="table table-striped">
         <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-    </div>
-  )
-}
+          <tr className="table-header">
+            <th scope="col">#id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
 
-export default InfoList
+        <tbody>
+          {info?.map((item) => {
+            const { id, title, description } = item;
+            return (
+              <tr key={id}>
+                <th scope="row">{id}</th>
+                <td>{title}</td>
+                <td>{description}</td>
+                <td>
+                <FaEdit
+                    className="me-2 text-warning cursor-pointer"
+                  />
+                  <AiFillDelete
+                    className="text-danger cursor-pointer"
+                  />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default InfoList;

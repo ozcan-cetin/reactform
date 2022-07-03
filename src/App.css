@@ -24,3 +24,18 @@ button{
   width: 150px;
 }
 
+.list-container{
+  width: 90vw;
+  margin: auto;
+  margin-top: 1rem;
+  border-bottom: 1px solid black;
+}
+
+tr{
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  /* border: 1px solid red; */
+}
+
