@@ -32,10 +32,20 @@ const Home = () => {
         getInfo()
     }
 
+//! DELETE METHOD ********
+    const deleteInfo = async(id) => {
+        try {
+            await axios.delete(`${url}/${id}`)
+        } catch (error) {
+            console.log(error);
+        }
+        getInfo();
+    }
+
     return (
     <div>
         <AddInfo postInfo={postInfo} />
-        <InfoList info={info} />
+        <InfoList info={info} deleteInfo={deleteInfo} />
     </div>
   )
 }

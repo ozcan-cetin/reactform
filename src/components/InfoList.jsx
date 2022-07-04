@@ -1,7 +1,7 @@
 import { FaEdit } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 
-const InfoList = ({ info }) => {
+const InfoList = ({ info, deleteInfo }) => {
   return (
     <div className="list-container">
       <table className="table table-striped">
@@ -28,6 +28,7 @@ const InfoList = ({ info }) => {
                   />
                   <AiFillDelete
                     className="text-danger cursor-pointer"
+                    onClick={()=>deleteInfo(id)}
                   />
                 </td>
               </tr>
