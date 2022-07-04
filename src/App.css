@@ -28,6 +28,9 @@ button{
   width: 90vw;
   margin: auto;
   margin-top: 1rem;
+}
+
+.table-header{
   border-bottom: 1px solid black;
 }
 

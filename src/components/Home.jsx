@@ -42,6 +42,18 @@ const Home = () => {
         getInfo();
     }
 
+//! PUT(UPDATE) METHOD ********   
+    const editInfo = async(id, title, desc) => {
+        const filtered = info.filter((element)=>element.id === id)
+        .map(()=>({title:title, description:desc}))
+        try {
+            await axios.put(`${url}/${id}`, filtered[0])
+        } catch (error) {
+            console.log(error);
+        }
+        getInfo();
+    }
+
     return (
     <div>
         <AddInfo postInfo={postInfo} />
