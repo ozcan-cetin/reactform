@@ -7,6 +7,7 @@ const Home = () => {
     const [info, setInfo] = useState();
     const url = "https://axios-example-cw.herokuapp.com/api/tutorials"
 
+//! GET METHOD ***********
     const getInfo = async() =>{
         try {
            const {data} = await axios.get(url);
@@ -21,9 +22,19 @@ const Home = () => {
         getInfo()
     },[])
 
+//! POST METHOD ********
+    const postInfo = async(info) => {
+        try {
+        await axios.post(url, info)    
+        } catch (error) {
+        console.log(error);
+        }
+        getInfo()
+    }
+
     return (
     <div>
-        <AddInfo />
+        <AddInfo postInfo={postInfo} />
         <InfoList info={info} />
     </div>
   )
