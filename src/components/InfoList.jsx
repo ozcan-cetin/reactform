@@ -33,6 +33,7 @@ const InfoList = ({ info, deleteInfo, editInfo }) => {
                 <td>{description}</td>
                 <td>
                 <FaEdit
+                    className='cursor-pointer'
                     onClick={()=>{setEdititem(item) 
                       handleShow()}}
                   />
