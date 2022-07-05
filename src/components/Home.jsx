@@ -44,10 +44,10 @@ const Home = () => {
 
 //! PUT(UPDATE) METHOD ********   
     const editInfo = async(id, title, desc) => {
-        const filtered = info.filter((element)=>element.id === id)
-        .map(()=>({title:title, description:desc}))
+        // const filtered = info.filter((element)=>element.id === id)
+        // .map(()=>({title:title, description:desc}))
         try {
-            await axios.put(`${url}/${id}`, filtered[0])
+            await axios.put(`${url}/${id}`, { title, description: desc })
         } catch (error) {
             console.log(error);
         }
@@ -57,7 +57,7 @@ const Home = () => {
     return (
     <div>
         <AddInfo postInfo={postInfo} />
-        <InfoList info={info} deleteInfo={deleteInfo} />
+        <InfoList info={info} deleteInfo={deleteInfo} editInfo={editInfo} />
     </div>
   )
 }

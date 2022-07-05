@@ -1,7 +1,15 @@
 import { FaEdit } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
+import { useState } from 'react';
+import EditInfo from './EditInfo';
 
-const InfoList = ({ info, deleteInfo }) => {
+const InfoList = ({ info, deleteInfo, editInfo }) => {
+  const [edititem, setEdititem] = useState("");
+
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+
   return (
     <div className="list-container">
       <table className="table table-striped">
@@ -17,6 +25,7 @@ const InfoList = ({ info, deleteInfo }) => {
         <tbody>
           {info?.map((item) => {
             const { id, title, description } = item;
+            // console.log(item)
             return (
               <tr key={id}>
                 <th scope="row">{id}</th>
@@ -24,7 +33,8 @@ const InfoList = ({ info, deleteInfo }) => {
                 <td>{description}</td>
                 <td>
                 <FaEdit
-                    className="me-2 text-warning cursor-pointer"
+                    onClick={()=>{setEdititem(item) 
+                      handleShow()}}
                   />
                   <AiFillDelete
                     className="text-danger cursor-pointer"
@@ -36,6 +46,7 @@ const InfoList = ({ info, deleteInfo }) => {
           })}
         </tbody>
       </table>
+      <EditInfo editInfo={editInfo} edititem={edititem} show={show} setShow={setShow} />
     </div>
   );
 };

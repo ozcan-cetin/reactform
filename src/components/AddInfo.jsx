@@ -4,7 +4,6 @@ const AddInfo = ({postInfo}) => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         postInfo(
